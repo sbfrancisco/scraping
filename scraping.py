@@ -15,7 +15,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 items = soup.find_all("div", class_="poly-card__content")
 
 if not items:
-    print("No se encontraron productos. Quizás la página carga contenido con JavaScript.")
+    print("No se encontraron productos.")
 else:
     for item in items:
         title_tag = item.find("h3", class_="poly-component__title-wrapper").find("a")

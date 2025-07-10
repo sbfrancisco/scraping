@@ -1,9 +1,24 @@
 import requests
 from bs4 import BeautifulSoup
 
-busqueda = input("Ingrese término de búsqueda para Mercado Libre: ")
+busqueda = input("Ingrese término de búsqueda para mercado Libre: ")
+filtros = input("""Ingrese por qué quiere filtrar:
+0 - Sin filtro
+1 - Precio menor
+2 - Envío gratis
+3 - Precio mayor
+Seleccione una opción: """)
 
-url = f"https://listado.mercadolibre.com.ar/{busqueda}#D[A:{busqueda}]"
+if filtros == "1":
+    busqueda = busqueda + "_OrderId_PRICE_NoIndex_True"
+elif filtros == "2":
+    busqueda = busqueda + "_CostoEnvio_Gratis_NoIndex_True"
+elif filtros == "3":
+    busqueda = busqueda + "_OrderId_PRICE*DESC_NoIndex_True"
+else:
+    pass
+url = f"https://listado.mercadolibre.com.ar/{busqueda}"
+
 # se emula navegador real
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"

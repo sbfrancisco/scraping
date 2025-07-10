@@ -1,14 +1,14 @@
 # scraping
 
 
-this python script lets you search products on Mercado Libre Argentina and extract key info like title, link, prices, discount, installments, shipping, and promotion status.
+this python script lets you search products on mercado libre and extract key info like title, link, prices, discount, installments, shipping, and promotion status.
 
 ## requirements
 
 - Python 3.x  
 - requests  
 - beautifulsoup4
-- 
+  
 for install
 pip install requests beautifulsoup4
 
